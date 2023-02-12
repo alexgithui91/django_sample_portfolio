@@ -42,6 +42,7 @@
 </div>
 
 {#    Services Section#}
+
 <div id="services" class="section-padding">
     <div class="container">
         <div class="row">
@@ -67,6 +68,7 @@
 </div>
 
 {#    Recent Works Section#}
+
 <div id="portfolio" class="portfolio-area section-padding">
     <div class="container-fluid">
         <div class="row">
@@ -86,6 +88,36 @@
 
                     <div class="gallery-text">
                         <h2>{{ work.title }}</h2>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{#    Client Testimonials#}
+
+<div id="testimonial" class="testimonial-area section-padding">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header">
+                    <h2>Client Feedback</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for client in clients %}
+            <div class="col-md-4 col-sm-4 col-xs-12 no-padding">
+                <div class="gallery-items">
+                    <a class="view img" href="{{ client.image.url }}">
+                        <img src="{{ client.image.url }}" alt="work image">
+                    </a>
+
+                    <div class="gallery-text">
+                        <h2>{{ client.name }}</h2>
+                        <h2>{{ client.description }}</h2>
                     </div>
                 </div>
             </div>
