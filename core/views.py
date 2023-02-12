@@ -22,6 +22,10 @@ class HomeTemplateView(TemplateView):
 
     def post(self, request):
         if request.method == "POST":
-            print("yey")
-
+            message = request.POST["message"]
+            full_name = request.POST["name"]
+            email = request.POST["email"]
+            print(full_name)
+            print(email)
+            print(message)
         return render(request, "home.html", self.get_context_data())
