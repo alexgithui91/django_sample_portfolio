@@ -13,5 +13,6 @@ class HomeTemplateView(TemplateView):
         context["about"] = About.objects.first()
         context["services"] = Service.objects.all()
         context["works"] = RecentWork.objects.all()
+        context["clients"] = Client.objects.all()
 
         return context
