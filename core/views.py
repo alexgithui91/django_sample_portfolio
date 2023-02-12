@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from .models import *
+from .forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 
 
 # Create your views here
@@ -16,3 +19,9 @@ class HomeTemplateView(TemplateView):
         context["clients"] = Client.objects.all()
 
         return context
+
+    def post(self, request):
+        if request.method == "POST":
+            print("yey")
+
+        return render(request, "home.html", self.get_context_data())
