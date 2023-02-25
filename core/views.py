@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from .models import *
 from .forms import ContactForm
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import BadHeaderError
 from django.http import HttpResponse
+import os
 
 
 # Create your views here
@@ -25,7 +26,8 @@ class HomeTemplateView(TemplateView):
             message = request.POST["message"]
             full_name = request.POST["name"]
             email = request.POST["email"]
-            print(full_name)
-            print(email)
-            print(message)
+
+            # Send inquiry mail
+            mail_subject = "Codi"
+
         return render(request, "home.html", self.get_context_data())
